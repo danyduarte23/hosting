@@ -3,56 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Información Médica</title>
+    <title>Información Médica de Emergencia</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Cargando Font Awesome para los iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script>
-    function enviarEmergencia() {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                let lat = position.coords.latitude;
-                let lon = position.coords.longitude;
-                let mensaje = 'Emergencia! Ubicación: https://maps.google.com/?q=' + lat + ',' + lon;
-                let url = 'https://wa.me/50371507095?text=' + encodeURIComponent(mensaje); // Número +50371507095
-                window.open(url, '_blank');
-            });
-        } else {
-            alert("La geolocalización no está disponible en este dispositivo.");
+        function enviarEmergencia() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    let lat = position.coords.latitude;
+                    let lon = position.coords.longitude;
+                    let mensaje = 'Emergencia! Ubicación: https://maps.google.com/?q=' + lat + ',' + lon;
+                    let url = 'https://wa.me/50371507095?text=' + encodeURIComponent(mensaje); // Número +50371507095
+                    window.open(url, '_blank');
+                });
+            } else {
+                alert("La geolocalización no está disponible en este dispositivo.");
+            }
         }
-    }
-</script>
+    </script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+        }
+        .card {
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-body {
+            background-color: #ffffff;
+        }
+        h2 {
+            color: #2F4F4F;  /* Verde oscuro */
+            font-weight: bold;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);  /* Sombra suave para resaltar */
+            margin-bottom: 40px;  /* Separación de los demás elementos */
+            text-align: center;
+			text-shadow: gray 1px 0 10px;
+        }
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+            font-size: 16px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            width: auto;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+        .icon-whatsapp {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body class="container mt-4">
-    <h2 class="text-center">Información Médica de Emergencia</h2>
-    <div class="card mt-3">
+<body class="container">
+    <h2>Información Médica de Emergencia</h2>
+    
+    <div class="card mt-4">
         <div class="card-body">
-            <h5>Datos Personales</h5>
+            <h5 class="card-title">Datos Personales</h5>
             <p><strong>Nombre:</strong> Petrona Duarte</p>
             <p><strong>DUI:</strong> 01700405-7</p>
             <p><strong>Fecha de Nacimiento:</strong> 03/08/1949</p>
             <p><strong>Dirección:</strong> Col. Zacamil, Com. 13 de enero, Pje. 2, Pol. D, Casa # 24, Mejicanos, San Salvador.</p>
         </div>
     </div>
+
     <div class="card mt-3">
         <div class="card-body">
-            <h5>Contactos de Emergencia</h5>
+            <h5 class="card-title">Contactos de Emergencia</h5>
             <ul>
                 <li><strong>Daniel Balmore Duarte:</strong><br />(+503) 7150-7095</li>
                 <li><strong>Noé Duarte:</strong><br />(+503) 7859-6964</li>
             </ul>
         </div>
     </div>
+
     <div class="card mt-3">
         <div class="card-body">
-            <h5>Historial Médico</h5>
+            <h5 class="card-title">Historial Médico</h5>
             <p><strong>Tipo de Sangre:</strong> ORH+</p>
             <p><strong>Alergias:</strong> Ninguna</p>
             <p><strong>Condiciones Médicas:</strong> Hipertensión, Diabetes leve</p>
-	    <p><strong>Expediente y controles:</strong> Hospital Nacional Zacamil, Unidad de Salud San Antonio Abad, Unidad de Salud Zacamil.</p>
+            <p><strong>Expediente y controles:</strong> Hospital Nacional Zacamil, Unidad de Salud San Antonio Abad, Unidad de Salud Zacamil.</p>
         </div>
     </div>
+
     <div class="card mt-3">
         <div class="card-body">
-            <h5>Medicamentos</h5>
+            <h5 class="card-title">Medicamentos</h5>
             <ul>
                 <li><strong>Propanolol</strong> - 1 vez al día - 50mg</li>
                 <li><strong>Metformina</strong> - 1 vez al día - 50mg</li>
@@ -61,7 +112,11 @@
             </ul>
         </div>
     </div>
-    <button class="btn btn-success mt-3 w-100" onclick="enviarEmergencia()">Enviar Ubicación por Whatsapp</button>
-    <br /><br />
+
+    <!-- Botón con ícono de WhatsApp y tamaño ajustable -->
+    <button class="btn btn-success mt-4 w-50 mx-auto d-block" onclick="enviarEmergencia()">
+        <i class="fab fa-whatsapp icon-whatsapp"></i> Enviar Ubicación de Emergencia
+    </button>
+	<br />
 </body>
 </html>
