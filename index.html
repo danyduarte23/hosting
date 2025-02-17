@@ -34,14 +34,14 @@
         .card-body {
             background-color: #ffffff;
         }
-        h2 {
+        h4 {
             color: #2F4F4F;  /* Verde oscuro */
             font-weight: bold;
-            font-size: 2.5rem;
+            font-size: 1.7rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);  /* Sombra suave para resaltar */
             margin-bottom: 40px;  /* Separación de los demás elementos */
             text-align: center;
-			text-shadow: gray 1px 0 10px;
+            text-shadow: gray 1px 0 10px;
         }
         .btn-success {
             background-color: #28a745;
@@ -50,6 +50,7 @@
             padding: 12px 20px;
             border-radius: 8px;
             width: auto;
+            max-width: 400px; /* Establecemos un ancho máximo */
         }
         .btn-success:hover {
             background-color: #218838;
@@ -66,10 +67,17 @@
             font-size: 1.25rem;
             font-weight: bold;
         }
+
+        /* Estilos para dispositivos pequeños */
+        @media (max-width: 576px) {
+            .btn-success {
+                width: 100%; /* Hacer el botón del 100% del ancho en pantallas pequeñas */
+            }
+        }
     </style>
 </head>
 <body class="container">
-    <h2>Información Médica de Emergencia</h2>
+    <h4>Información Médica de Emergencia</h4>
     
     <div class="card mt-4">
         <div class="card-body">
@@ -114,7 +122,7 @@
     </div>
 
     <!-- Botón con ícono de WhatsApp y tamaño ajustable -->
-    <button class="btn btn-success mt-4 w-50 mx-auto d-block" onclick="enviarEmergencia()">
+    <button class="btn btn-success mt-4 mx-auto d-block" onclick="enviarEmergencia()">
         <i class="fab fa-whatsapp icon-whatsapp"></i> Enviar Ubicación de Emergencia
     </button>
 	<br />
