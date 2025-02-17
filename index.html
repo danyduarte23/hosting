@@ -11,8 +11,8 @@
                 navigator.geolocation.getCurrentPosition(function(position) {
                     let lat = position.coords.latitude;
                     let lon = position.coords.longitude;
-                    let mensaje = `Emergencia! Ubicación: https://maps.google.com/?q=${lat},${lon}`;
-                    window.location.href = `mailto:dbhernandez_d@hotmail.com?subject=Emergencia&body=${mensaje}`;
+                    let mensaje = 'Emergencia! Ubicación: https://maps.google.com/?q=${lat},${lon}';
+                    window.location.href = 'mailto:dbhernandez_d@hotmail.com?subject=Emergencia&body=${mensaje}';
                 });
             } else {
                 alert("La geolocalización no está disponible en este dispositivo.");
