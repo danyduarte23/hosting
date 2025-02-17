@@ -11,8 +11,9 @@
                 navigator.geolocation.getCurrentPosition(function(position) {
                     let lat = position.coords.latitude;
                     let lon = position.coords.longitude;
-                    let mensaje = 'Emergencia! Ubicación: https://maps.google.com/?q=${lat},${lon}';
-                    window.location.href = 'mailto:dbhernandez_d@hotmail.com?subject=Emergencia&body=${mensaje}';
+                    let mensaje = 'Emergencia! Ubicación: https://maps.google.com/?q=' + lat + ',' + lon;
+                    let url = 'https://wa.me/?text=' + encodeURIComponent(mensaje);
+                    window.open(url, '_blank');
                 });
             } else {
                 alert("La geolocalización no está disponible en este dispositivo.");
@@ -46,7 +47,7 @@
             <p><strong>Tipo de Sangre:</strong> ORH+</p>
             <p><strong>Alergias:</strong> Ninguna</p>
             <p><strong>Condiciones Médicas:</strong> Hipertensión, Diabetes leve</p>
-			<p><strong>Expediente y controles:</strong> Hospital Nacional Zacamil, Unidad de Salud San Antonio Abad, Unidad de Salud Zacamil.</p>
+	    <p><strong>Expediente y controles:</strong> Hospital Nacional Zacamil, Unidad de Salud San Antonio Abad, Unidad de Salud Zacamil.</p>
         </div>
     </div>
     <div class="card mt-3">
@@ -60,7 +61,7 @@
             </ul>
         </div>
     </div>
-    <button class="btn btn-success mt-3 w-100" onclick="enviarEmergencia()">Enviar Ubicación</button>
+    <button class="btn btn-success mt-3 w-100" onclick="enviarEmergencia()">Enviar Ubicación por Whatsapp</button>
     <br /><br />
 </body>
 </html>
